@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyFPL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab1">Tin Tức</string>
+    <string name="tab2">Thông báo</string>
+
+</resources>
