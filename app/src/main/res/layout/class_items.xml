@@ -24,12 +24,12 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
-            android:src="@drawable/svg_news_logo"
+            android:src="@drawable/ic_baseline_school_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvNewsTime"
+            android:id="@+id/tvClassDate"
             android:layout_width="81dp"
             android:layout_height="19dp"
             android:layout_marginStart="15dp"
@@ -40,9 +40,20 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="15/07/2032" />
 
+        <TextView
+            android:id="@+id/tvClassPeriod"
+            android:layout_width="81dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/textSecondary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ca 5" />
 
         <TextView
-            android:id="@+id/tvNewsAuthor"
+            android:id="@+id/tvTeacher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -55,7 +66,7 @@
             tools:text="Giảng viên: DinhTN" />
 
         <TextView
-            android:id="@+id/tvNewsTitle"
+            android:id="@+id/tvSubject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

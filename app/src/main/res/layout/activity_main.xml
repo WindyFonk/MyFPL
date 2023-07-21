@@ -7,15 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include layout="@layout/action_bar"
+        android:id="@+id/action_bar"
+        />
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="650dp">
 
         <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:name="com.example.myfpl.activity_fragments.Home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragmentContainer"
-            android:name="com.example.myfpl.fragments.Home"
             tools:layout="@layout/fragment_home" />
 
     </FrameLayout>

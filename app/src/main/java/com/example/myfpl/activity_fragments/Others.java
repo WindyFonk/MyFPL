@@ -1,4 +1,4 @@
-package com.example.myfpl.fragments;
+package com.example.myfpl.activity_fragments;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 
 import com.example.myfpl.R;
 
-public class Schedule extends Fragment {
+public class Others extends Fragment {
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_schedule, container, false);
+        view = inflater.inflate(R.layout.fragment_others, container, false);
         return view;
     }
 }

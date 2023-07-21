@@ -6,14 +6,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.myfpl.R;
-import com.example.myfpl.models.News;
+import com.example.myfpl.models.NewsModel;
 
 import java.util.ArrayList;
 
 public class NewsAdapter extends BaseAdapter {
 
-    public ArrayList<News> list;
-    public NewsAdapter(ArrayList<News> list){
+    public ArrayList<NewsModel> list;
+    public NewsAdapter(ArrayList<NewsModel> list){
         this.list=list;
     }
     @Override
@@ -42,6 +42,12 @@ public class NewsAdapter extends BaseAdapter {
             ViewHolder holder = new ViewHolder(tvNewsTime, tvNewsAuthor,tvNewsTitle);
             view.setTag(holder);
         }
+
+        NewsModel news = (NewsModel) getItem(i);
+        ViewHolder holder = (ViewHolder) view.getTag();
+        holder.tvNewsTitle.setText(news.getTitle());
+        holder.tvNewsAuthor.setText("Người đăng: "+news.getAuthor());
+        holder.tvNewsTime.setText(news.getTime());
 
         return view;
     }
