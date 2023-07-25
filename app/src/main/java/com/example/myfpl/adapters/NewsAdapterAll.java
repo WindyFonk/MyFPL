@@ -6,23 +6,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfpl.R;
-import com.example.myfpl.models.LichHocModel;
-import com.example.myfpl.models.LichHocModel;
+import com.example.myfpl.models.NewsModel;
 
 import java.util.ArrayList;
 
-public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRecyle.ViewHoler> {
+public class NewsAdapterAll extends RecyclerView.Adapter<NewsAdapterAll.ViewHoler> {
 
     private Context context;
-    private ArrayList<LichHocModel> data;
+    private ArrayList<NewsModel> data;
 
-    public LichHocAdapterRecyle(Context context, ArrayList<LichHocModel> data) {
+    public NewsAdapterAll(Context context, ArrayList<NewsModel> data) {
         this.context = context;
         this.data = data;
     }
@@ -31,16 +31,15 @@ public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRec
     @Override
     public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.home_schedule_items, parent, false);
+        View view = inflater.inflate(R.layout.all_news_items, parent, false);
         return new ViewHoler(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvCa.setText("Ca: "+data.get(position).getCa());
-        holder.tvNgay.setText(data.get(position).getNgay());
-        holder.tvPhong.setText("Phòng: "+data.get(position).getPhong());
-        holder.tvMon.setText(data.get(position).getMonHoc());
+        holder.tvNewsTitle.setText(data.get(position).getTitle());
+        holder.tvNewsAuthor.setText("Người đăng: " + data.get(position).getAuthor());
+        holder.tvNewsTime.setText(data.get(position).getTime());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,19 +55,19 @@ public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRec
     }
 
     public class ViewHoler extends RecyclerView.ViewHolder {
-        TextView tvCa;
-        TextView tvNgay;
-        TextView tvPhong;
-        TextView tvMon;
+        ImageView imgNews;
+        TextView tvNewsTime;
+        TextView tvNewsAuthor;
+        TextView tvNewsTitle;
         View layout;
 
         public ViewHoler(@NonNull View view) {
             super(view);
-            tvCa = view.findViewById(R.id.tvCaHoc);
-            tvNgay = view.findViewById(R.id.tvNgay);
-            tvPhong = view.findViewById(R.id.tvPhong);
-            tvMon = view.findViewById(R.id.tvMonHoc);
-            layout = view.findViewById(R.id.schedule_item_layout);
+            tvNewsTime = view.findViewById(R.id.tvNewsTime);
+            tvNewsAuthor = view.findViewById(R.id.tvNewsAuthor);
+            tvNewsTitle = view.findViewById(R.id.tvNewsTitle);
+            imgNews = view.findViewById(R.id.imgNews);
+            layout = view.findViewById(R.id.news_item_layout);
         }
     }
 }

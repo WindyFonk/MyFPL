@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
     @Override
     public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.home_new_items, parent, false);
+        View view = inflater.inflate(R.layout.home_news_items, parent, false);
         return new ViewHoler(view);
     }
 
@@ -54,8 +55,7 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
     }
 
     public class ViewHoler extends RecyclerView.ViewHolder {
-
-
+        ImageView imgNews;
         TextView tvNewsTime;
         TextView tvNewsAuthor;
         TextView tvNewsTitle;
@@ -66,6 +66,7 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
             tvNewsTime = view.findViewById(R.id.tvNewsTime);
             tvNewsAuthor = view.findViewById(R.id.tvNewsAuthor);
             tvNewsTitle = view.findViewById(R.id.tvNewsTitle);
+            imgNews = view.findViewById(R.id.imgNews);
             layout = view.findViewById(R.id.news_item_layout);
         }
     }

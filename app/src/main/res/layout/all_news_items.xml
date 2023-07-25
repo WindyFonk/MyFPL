@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/border_home_news"
+    android:id="@+id/news_item_layout">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgNews"
+        android:layout_width="179dp"
+        android:layout_height="139dp"
+        app:srcCompat="@drawable/news"
+        app:shapeAppearanceOverlay="@style/ImageView.Corner"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/tvNewsTitle"
+            android:text="THÔNG BÁO NHẬN BẰNG TỐT NGHIỆP (ĐỢT TỐT NGHIỆP THÁNG 06/2023)"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="Đăng bởi: NugoiCM"
+            android:id="@+id/tvNewsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+                android:text="15/03/2032"
+                android:id="@+id/tvNewsTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
+    </LinearLayout>
+
+    </LinearLayout>

@@ -3,13 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/colorPrimary"
     android:padding="5dp">
-    <ImageView
-        android:layout_marginTop="5dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_qr_code_scanner_24"/>
 
     <ImageView
         android:layout_marginTop="5dp"
@@ -20,9 +15,9 @@
 
     <ImageView
         android:id="@+id/fptLogo"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:src="@drawable/fptlogo"/>
+        android:layout_centerInParent="true"
+        android:src="@drawable/fptlogowhite" />
 
 </RelativeLayout>

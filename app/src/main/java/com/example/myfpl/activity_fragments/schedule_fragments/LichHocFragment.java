@@ -19,14 +19,14 @@ import com.example.myfpl.models.LichHocModel;
 
 import java.util.ArrayList;
 
-public class LichThiFragment extends Fragment {
+public class LichHocFragment extends Fragment {
     View view;
     ListView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_lich_thi, container, false);
+        view = inflater.inflate(R.layout.fragment_lich_hoc, container, false);
         listView = view.findViewById(R.id.lvLichThi);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,7 +57,7 @@ public class LichThiFragment extends Fragment {
     private void SetData(){
         ArrayList<LichHocModel> list = new ArrayList<>();
         LichHocModel _class = new LichHocModel("Android Networking","22/06/2003","5","DinhNT");
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             list.add(_class);
         }
 

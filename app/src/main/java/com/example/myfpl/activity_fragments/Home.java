@@ -1,6 +1,8 @@
 package com.example.myfpl.activity_fragments;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import retrofit2.Call;
@@ -21,15 +23,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.myfpl.LoginActivity;
+import com.example.myfpl.MainActivity;
 import com.example.myfpl.R;
-import com.example.myfpl.activity_fragments.schedule_fragments.LichThiFragment;
 import com.example.myfpl.activity_fragments.schedule_fragments.NewsListFragment;
 import com.example.myfpl.adapters.LichHocAdapterRecyle;
-import com.example.myfpl.adapters.NewsAdapter;
 import com.example.myfpl.adapters.NewsAdapterRecyle;
 import com.example.myfpl.api.API;
 import com.example.myfpl.models.LichHocModel;
@@ -46,6 +46,7 @@ public class Home extends Fragment {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     View view;
+    MainActivity activity;
     RecyclerView newsListview,scheduleListview;
     ImageView btnLogout;
     TextView btnAllNews, btnAllSchedules;
@@ -56,46 +57,51 @@ public class Home extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
         newsListview = view.findViewById(R.id.lvNews);
-        scheduleListview = view.findViewById(R.id.lvLichHoc);
+        scheduleListview = view.findViewById(R.id.lvLichhoc);
         SetData();
         SetDataLich();
 
+        btnLogout=view.findViewById(R.id.btnLogout);
+        btnAllNews=view.findViewById(R.id.tvAllNews);
+        btnAllSchedules=view.findViewById(R.id.tvAllLich);
+
+        //Thay anh theo fragment
+        Context context = requireContext();
+        activity = (MainActivity) context;
+        if (context instanceof MainActivity) {
+            activity.updateImageView(1);
+        }
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogOut();
+            }
+        });
+
+        btnAllNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReplaceFragment(new NewsListFragment());
+                activity.bottomNavigation.show(2,true);
+            }
+        });
+
+        btnAllSchedules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReplaceFragment(new Schedule());
+                activity.bottomNavigation.show(3,true);
+            }
+        });
         return view;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API.base_url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        API service = retrofit.create(API.class);
-
-        Call<ArrayList<NewsModel>> response = service.getNews();
-        response.enqueue(new Callback<ArrayList<NewsModel>>() {
-            @Override
-            public void onResponse(Call<ArrayList<NewsModel>> call, Response<ArrayList<NewsModel>> response) {
-                ArrayList<NewsModel> listNews = response.body();
-                NewsAdapter adapter = new NewsAdapter(listNews);
-                //newsListview.setAdapter(adapter);
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<NewsModel>> call, Throwable t) {
-                    Log.d(">>>>>>>>>>>ASD",t.toString());
-            }
-        });
-
     }
+
 
     private void SetData(){
         ArrayList<NewsModel> list = new ArrayList<>();
@@ -114,7 +120,7 @@ public class Home extends Fragment {
 
     private void SetDataLich(){
         ArrayList<LichHocModel> listLich = new ArrayList<>();
-        LichHocModel lich = new LichHocModel("Android Networking","20/05/2023","5: 17:30 - 19:30","T305");
+        LichHocModel lich = new LichHocModel("Android Networking","20/05/2023","5","T305");
         for (int i = 0; i < 5; i++) {
             listLich.add(lich);
         }
@@ -132,5 +138,61 @@ public class Home extends Fragment {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment, null);
         fragmentTransaction.commit();
+    }
+
+    private void CallAPI(){
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API.base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        API service = retrofit.create(API.class);
+
+        Call<ArrayList<NewsModel>> response = service.getNews();
+        response.enqueue(new Callback<ArrayList<NewsModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<NewsModel>> call, Response<ArrayList<NewsModel>> response) {
+                ArrayList<NewsModel> listNews = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<NewsModel>> call, Throwable t) {
+                Log.d(">>>>>>>>>>>ASD",t.toString());
+            }
+        });
+    }
+
+    public void LogOut(){
+        Intent intent= new Intent(requireContext(), LoginActivity.class);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Đăng xuất");
+        builder.setMessage("Bạn có muốn đăng xuất khỏi tài khoản này?");
+
+// Set positive button
+        builder.setPositiveButton("Đăng xuất", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(intent);
+            }
+        });
+
+// Set negative button
+        builder.setNegativeButton("Quay lại", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User clicked No button
+                // Perform the desired action here
+            }
+        });
+
+// Create and show the dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

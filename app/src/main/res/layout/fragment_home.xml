@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity_fragments.Home"
+    android:id="@+id/homeFragment"
     android:padding="15dp">
 
     <FrameLayout
@@ -31,7 +32,7 @@
             android:text="Trần Vũ Phong"
             android:layout_marginLeft="60dp"
             android:textSize="20dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
             android:textSize="15dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/btnLogout"
@@ -57,44 +58,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/svg_news_logo"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="Tin tức"
-            android:layout_marginLeft="35dp"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/tvAllNews"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:layout_gravity="right"
-            android:text="Xem tất cả>"
-            android:textColor="#17BDFF"
-            android:textSize="20dp" />
-
-    </FrameLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lvNews"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="195dp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:src="@drawable/ic_baseline_school_24"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,13 +75,50 @@
             android:fontFamily="sans-serif-light"
             android:layout_gravity="right"
             android:text="Xem tất cả>"
-            android:textColor="#17BDFF"
+            android:textColor="@color/colorPrimary"
             android:textSize="20dp" />
 
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lvLichHoc"
+        android:id="@+id/lvLichhoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="195dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/svg_news_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Tin tức"
+            android:layout_marginLeft="35dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tvAllNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:layout_gravity="right"
+            android:text="Xem tất cả>"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lvNews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="435dp" />

@@ -3,11 +3,7 @@
     android:shape="rectangle"   >
 
     <solid
-        android:color="@color/colorWhite"/>
-    <stroke
-        android:width="2dp"
-        android:color="#FFD290" >
-    </stroke>
+        android:color="@color/colorSecondary"/>
 
     <padding
         android:left="5dp"
@@ -17,7 +13,9 @@
     </padding>
 
     <corners
-        android:radius="11dp"   >
+        android:topRightRadius="11dp"
+        android:topLeftRadius="11dp"
+        android:bottomLeftRadius="11dp">
     </corners>
 
 </shape>

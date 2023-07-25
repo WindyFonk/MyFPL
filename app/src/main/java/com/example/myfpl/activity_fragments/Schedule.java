@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myfpl.R;
-import com.example.myfpl.activity_fragments.schedule_fragments.NewsListFragment;
 import com.example.myfpl.activity_fragments.schedule_fragments.LichThiFragment;
+import com.example.myfpl.activity_fragments.schedule_fragments.NewsListFragment;
+import com.example.myfpl.activity_fragments.schedule_fragments.LichHocFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class Schedule extends Fragment {
@@ -26,7 +27,7 @@ public class Schedule extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_schedule, container, false);
         TabNavigation();
-        ReplaceFragment(new NewsListFragment());
+        ReplaceFragment(new LichHocFragment());
 
         return view;
     }
@@ -40,7 +41,7 @@ public class Schedule extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition()==0){
-                    ReplaceFragment(new NewsListFragment());
+                    ReplaceFragment(new LichHocFragment());
                 }
                 else{
                     ReplaceFragment(new LichThiFragment());
