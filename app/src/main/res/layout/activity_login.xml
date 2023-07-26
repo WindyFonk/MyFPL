@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="228dp"
         android:layout_marginEnd="58dp"
         android:fontFamily="sans-serif-black"
         android:text="Đăng nhập bằng tài khoản Gmail"
@@ -80,30 +80,50 @@
         android:id="@+id/btnGoogleSignin"
         android:layout_width="230dp"
         android:layout_height="70dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="596dp"
+        android:contentDescription="TODO"
         android:src="@drawable/signinwighgoogle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="303dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoogleSignin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <!--    <com.google.android.material.textfield.TextInputLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        app:passwordToggleEnabled="true"-->
-    <!--        android:layout_marginTop="5dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:boxBackgroundMode="outline">-->
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="username"
+            android:textAlignment="center" />
 
-    <!--        <com.google.android.material.textfield.TextInputEditText-->
-    <!--            android:id="@+id/edtPass"-->
-    <!--            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginTop="10dp"-->
-    <!--            android:maxLines="1"-->
-    <!--            android:hint="Mật khẩu"-->
-    <!--            android:inputType="textPassword" />-->
-    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="password"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorSecondary"
+            android:text="Login">
+
+        </Button>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
