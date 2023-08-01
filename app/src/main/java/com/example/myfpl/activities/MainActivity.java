@@ -1,4 +1,4 @@
-package com.example.myfpl;
+package com.example.myfpl.activities;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.myfpl.R;
 import com.example.myfpl.activity_fragments.Home;
 import com.example.myfpl.activity_fragments.Others;
 import com.example.myfpl.activity_fragments.Schedule;
-import com.example.myfpl.activity_fragments.schedule_fragments.NewsListFragment;
-import com.example.myfpl.activity_fragments.schedule_fragments.LichHocFragment;
+import com.example.myfpl.activity_fragments.NewsListFragment;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;

@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.myfpl.MainActivity;
+import com.example.myfpl.activities.MainActivity;
 import com.example.myfpl.R;
 import com.example.myfpl.adapters.LichHocAdapter;
 import com.example.myfpl.models.LichHocModel;

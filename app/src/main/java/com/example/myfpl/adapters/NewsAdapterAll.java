@@ -37,8 +37,6 @@ public class NewsAdapterAll extends RecyclerView.Adapter<NewsAdapterAll.ViewHole
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvNewsTitle.setText(data.get(position).getTitle());
-        holder.tvNewsAuthor.setText("Người đăng: " + data.get(position).getAuthor());
         holder.tvNewsTime.setText(data.get(position).getTime());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override

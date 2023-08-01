@@ -3,44 +3,35 @@ package com.example.myfpl.models;
 import java.util.Date;
 
 public class NewsModel {
-  private String Id,Title,Time,Author;
+    private String _description,image,time;
 
-    public String getId() {
-        return Id;
+    public NewsModel(String _description, String image, String time) {
+        this._description = _description;
+        this.image = image;
+        this.time = time;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public String get_description() {
+        return _description;
     }
 
-    public String getTitle() {
-        return Title;
+    public void set_description(String _description) {
+        this._description = _description;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTime() {
-        return Time;
+        return time;
     }
 
     public void setTime(String time) {
-        Time = time;
-    }
-
-    public String getAuthor() {
-        return Author;
-    }
-
-    public void setAuthor(String author) {
-        Author = author;
-    }
-
-    public NewsModel(String id, String title, String time, String author) {
-        Id = id;
-        Title = title;
-        Time = time;
-        Author = author;
+        this.time = time;
     }
 }

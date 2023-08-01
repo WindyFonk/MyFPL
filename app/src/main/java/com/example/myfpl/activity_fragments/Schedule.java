@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.myfpl.R;
 import com.example.myfpl.activity_fragments.schedule_fragments.LichThiFragment;
-import com.example.myfpl.activity_fragments.schedule_fragments.NewsListFragment;
 import com.example.myfpl.activity_fragments.schedule_fragments.LichHocFragment;
 import com.google.android.material.tabs.TabLayout;
 

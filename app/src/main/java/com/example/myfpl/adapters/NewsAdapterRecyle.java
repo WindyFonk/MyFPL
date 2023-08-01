@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.myfpl.R;
 import com.example.myfpl.models.NewsModel;
 
@@ -37,9 +38,9 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvNewsTitle.setText(data.get(position).getTitle());
-        holder.tvNewsAuthor.setText("Người đăng: " + data.get(position).getAuthor());
+        holder.tvNewsTitle.setText(data.get(position).get_description());
         holder.tvNewsTime.setText(data.get(position).getTime());
+        Glide.with(context).load("http://i.imgur.com/DvpvklR.png").into(holder.imgNews);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

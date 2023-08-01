@@ -21,7 +21,7 @@ import retrofit2.http.POST;
 public interface API {
     String base_url = "https://eelant.000webhostapp.com/api/";
 
-    @GET("getNews.php")
+    @GET("notification/find-id.php?id=1")
     Call<ArrayList<NewsModel>> getNews();
 
 

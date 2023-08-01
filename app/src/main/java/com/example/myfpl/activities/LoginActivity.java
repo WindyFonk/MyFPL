@@ -1,41 +1,27 @@
-package com.example.myfpl;
+package com.example.myfpl.activities;
 
-import static com.example.myfpl.api.API.base_url;
-
-import androidx.annotation.AnyRes;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myfpl.api.API;
+import com.example.myfpl.R;
 import com.example.myfpl.api.ServiceHelper;
 import com.example.myfpl.models.BaseResponse;
 import com.example.myfpl.models.UserLoginObject;
 import com.example.myfpl.models.UserLoginReq;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 

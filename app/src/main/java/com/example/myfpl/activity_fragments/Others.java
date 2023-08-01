@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myfpl.MainActivity;
+import com.example.myfpl.activities.MainActivity;
 import com.example.myfpl.R;
 
 public class Others extends Fragment {

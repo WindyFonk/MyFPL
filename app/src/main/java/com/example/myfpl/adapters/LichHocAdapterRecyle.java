@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfpl.R;
 import com.example.myfpl.models.LichHocModel;
-import com.example.myfpl.models.LichHocModel;
 
 import java.util.ArrayList;
 
@@ -31,7 +30,7 @@ public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRec
     @Override
     public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.home_schedule_items, parent, false);
+        View view = inflater.inflate(R.layout.lich_hoc_items, parent, false);
         return new ViewHoler(view);
     }
 

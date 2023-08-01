@@ -1,4 +1,4 @@
-package com.example.myfpl.activity_fragments.schedule_fragments;
+package com.example.myfpl.activity_fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myfpl.MainActivity;
+import com.example.myfpl.activities.MainActivity;
 import com.example.myfpl.R;
 import com.example.myfpl.adapters.NewsAdapterAll;
 import com.example.myfpl.models.NewsModel;
@@ -42,10 +42,6 @@ public class NewsListFragment extends Fragment {
 
     private void SetData(){
         ArrayList<NewsModel> list = new ArrayList<>();
-        NewsModel _class = new NewsModel("0","Thông báo phát hành giáo trình kì Fall 2023","22/06/2003","DinhNT");
-        for (int i = 0; i < 5; i++) {
-            list.add(_class);
-        }
 
         NewsAdapterAll adapter = new NewsAdapterAll(requireContext(),list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
