@@ -15,15 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.myfpl.R;
 import com.example.myfpl.models.NewsModel;
+import com.example.myfpl.models.NotificationModel;
 
 import java.util.ArrayList;
 
 public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.ViewHoler> {
 
-    private Context context;
-    private ArrayList<NewsModel> data;
+    private final Context context;
+    private final ArrayList<NotificationModel> data;
 
-    public NewsAdapterRecyle(Context context, ArrayList<NewsModel> data) {
+    public NewsAdapterRecyle(Context context, ArrayList<NotificationModel> data) {
         this.context = context;
         this.data = data;
     }
@@ -38,9 +39,8 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvNewsTitle.setText(data.get(position).get_description());
-        holder.tvNewsTime.setText(data.get(position).getTime());
-        Glide.with(context).load("http://i.imgur.com/DvpvklR.png").into(holder.imgNews);
+        holder.tvNewsTitle.setText(data.get(position).DESCRIPTION);
+        holder.tvNewsTime.setText(data.get(position).TIME);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

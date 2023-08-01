@@ -14,15 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfpl.R;
 import com.example.myfpl.models.NewsModel;
+import com.example.myfpl.models.NotificationModel;
 
 import java.util.ArrayList;
 
 public class NewsAdapterAll extends RecyclerView.Adapter<NewsAdapterAll.ViewHoler> {
 
     private Context context;
-    private ArrayList<NewsModel> data;
+    private ArrayList<NotificationModel> data;
 
-    public NewsAdapterAll(Context context, ArrayList<NewsModel> data) {
+    public NewsAdapterAll(Context context, ArrayList<NotificationModel> data) {
         this.context = context;
         this.data = data;
     }
@@ -37,7 +38,8 @@ public class NewsAdapterAll extends RecyclerView.Adapter<NewsAdapterAll.ViewHole
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvNewsTime.setText(data.get(position).getTime());
+        holder.tvNewsTitle.setText(data.get(position).DESCRIPTION);
+        holder.tvNewsTime.setText(data.get(position).TIME);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

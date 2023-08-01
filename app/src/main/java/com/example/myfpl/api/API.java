@@ -1,7 +1,11 @@
 package com.example.myfpl.api;
 
 import com.example.myfpl.models.BaseResponse;
+import com.example.myfpl.models.CourseModel;
+import com.example.myfpl.models.LichThiModel;
+import com.example.myfpl.models.MonHoc;
 import com.example.myfpl.models.NewsModel;
+import com.example.myfpl.models.NotificationModel;
 import com.example.myfpl.models.UserLoginObject;
 import com.example.myfpl.models.UserLoginReq;
 
@@ -31,4 +35,22 @@ public interface API {
             @Field("username") String username,
             @Field("pwd") String password
     );
+
+    @GET("notification/find-id.php?id=1")
+    Call<BaseResponse<ArrayList<NotificationModel>>> getNotification();
+
+    @GET("course/find-id.php?id=1")
+    Call<BaseResponse<ArrayList<CourseModel>>> getCourse();
+
+    @POST("course/register.php")
+    Call<BaseResponse<String>> registerCourse(@Field("id_user") int id, @Field("id_course") int id_course);
+
+    @POST("course/cancel-course.php")
+    Call<BaseResponse<String>> cancelCourse(@Field("id_user") int id, @Field("id_course") int id_course);
+
+    @GET("account/find-test-id.php?id=1")
+    Call<BaseResponse<ArrayList<LichThiModel>>> getLichThi();
+
+    @GET("course/get-all.php")
+    Call<BaseResponse<ArrayList<MonHoc>>> getMonHoc();
 }

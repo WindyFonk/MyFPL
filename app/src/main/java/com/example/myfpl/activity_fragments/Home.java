@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -32,6 +33,14 @@ import com.example.myfpl.adapters.NewsAdapterRecyle;
 import com.example.myfpl.api.ServiceHelper;
 import com.example.myfpl.models.LichHocModel;
 import com.example.myfpl.models.NewsModel;
+import com.example.myfpl.api.API;
+import com.example.myfpl.api.ServiceHelper;
+import com.example.myfpl.models.BaseResponse;
+import com.example.myfpl.models.LichHocModel;
+import com.example.myfpl.models.NewsModel;
+import com.example.myfpl.models.NotificationModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
@@ -98,10 +107,14 @@ public class Home extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        CallAPINews();
+
+    private void SetData() {
+        ArrayList<NotificationModel> list = null;
+        NewsAdapterRecyle adapter = new NewsAdapterRecyle(requireContext(), list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        newsListview.setLayoutManager(linearLayoutManager);
+        newsListview.setAdapter(adapter);
     }
 
     private void SetDataLich() {
@@ -126,24 +139,35 @@ public class Home extends Fragment {
         fragmentTransaction.commit();
     }
 
-    private void CallAPINews() {
-        ServiceHelper.getInstance().getNews()
-                .enqueue(new Callback<ArrayList<NewsModel>>() {
-                    @Override
-                    public void onResponse(Call<ArrayList<NewsModel>> call, Response<ArrayList<NewsModel>> response) {
-                        ArrayList<NewsModel> list = response.body();
-                        Log.d("List", list.toString());
-                    }
+    private void CallAPI() {
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
-                    @Override
-                    public void onFailure(Call<ArrayList<NewsModel>> call, Throwable t) {
-                        Log.e(">>>Get Data failed", "onFailure: ", t);
-                    }
-                });
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API.base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        API service = retrofit.create(API.class);
+
+        Call<ArrayList<NewsModel>> response = service.getNews();
+        response.enqueue(new Callback<ArrayList<NewsModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<NewsModel>> call, Response<ArrayList<NewsModel>> response) {
+                ArrayList<NewsModel> listNews = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<NewsModel>> call, Throwable t) {
+                Log.d(">>>>>>>>>>>ASD", t.toString());
+            }
+        });
     }
 
-    public void LogOut(){
-        Intent intent= new Intent(requireContext(), LoginActivity.class);
+    public void LogOut() {
+        Intent intent = new Intent(requireContext(), LoginActivity.class);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Đăng xuất");
@@ -170,4 +194,8 @@ public class Home extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+
+
+
 }
