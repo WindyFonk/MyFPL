@@ -5,6 +5,10 @@ import static com.example.myfpl.api.API.base_url;
 import androidx.annotation.NonNull;
 
 import com.example.myfpl.models.BaseResponse;
+import com.example.myfpl.models.CourseModel;
+import com.example.myfpl.models.LichThiModel;
+import com.example.myfpl.models.MonHoc;
+import com.example.myfpl.models.NotificationModel;
 import com.example.myfpl.models.UserLoginObject;
 import com.example.myfpl.models.UserLoginReq;
 import com.google.gson.Gson;
@@ -58,4 +62,27 @@ public class ServiceHelper {
         return service.login(userLoginReq.username, userLoginReq.pwd);
     }
 
+    public Call<BaseResponse<ArrayList<NotificationModel>>> getNotification() {
+        return service.getNotification();
+    }
+
+    public Call<BaseResponse<ArrayList<CourseModel>>> getCourse() {
+        return service.getCourse();
+    }
+
+    public Call<BaseResponse<String>> registerCourse() {
+        return service.registerCourse(1,4);
+    }
+
+    public Call<BaseResponse<String>> cancelCourse() {
+        return service.cancelCourse(1,4);
+    }
+
+    public Call<BaseResponse<ArrayList<LichThiModel>>> getLichThi() {
+        return service.getLichThi();
+    }
+
+    public Call<BaseResponse<ArrayList<MonHoc>>> getMonHoc() {
+        return service.getMonHoc();
+    }
 }

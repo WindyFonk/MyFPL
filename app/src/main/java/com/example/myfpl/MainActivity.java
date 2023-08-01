@@ -46,28 +46,25 @@ public class MainActivity extends FragmentActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_event_note_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_person_24));
 
-        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                switch (model.getId()){
-                    case 1:
-                        ReplaceFragment(new Home());
-                        break;
+        bottomNavigation.setOnClickMenuListener(model -> {
+            switch (model.getId()){
+                case 1:
+                    ReplaceFragment(new Home());
+                    break;
 
-                    case 2:
-                        ReplaceFragment(new NewsListFragment());
-                        break;
+                case 2:
+                    ReplaceFragment(new NewsListFragment());
+                    break;
 
-                    case 3:
-                        ReplaceFragment(new Schedule());
-                        break;
+                case 3:
+                    ReplaceFragment(new Schedule());
+                    break;
 
-                    case 4:
-                        ReplaceFragment(new Others());
-                        break;
-                }
-                return null;
+                case 4:
+                    ReplaceFragment(new Others());
+                    break;
             }
+            return null;
         });
     }
 
