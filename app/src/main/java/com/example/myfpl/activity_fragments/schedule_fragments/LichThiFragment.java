@@ -31,14 +31,6 @@ public class LichThiFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AlertDialog alertDialog;
-                LayoutInflater mLayoutInflater = getLayoutInflater();
-                View _view = mLayoutInflater.inflate(R.layout.dialog_class_detail, null);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext())
-                        .setView(_view);
-                alertDialog = builder.create();
-                alertDialog.show();
             }
         });
         SetData();

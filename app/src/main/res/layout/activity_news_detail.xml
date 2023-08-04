@@ -6,18 +6,18 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:src="@drawable/news"
         android:id="@+id/article_image"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginBottom="436dp"
+        android:layout_width="413dp"
+        android:layout_height="210dp"
+        android:foreground="@drawable/newsimg_foreground"
         android:scaleType="centerCrop"
+        android:src="@drawable/news"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0"
-/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/article_title"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:fontFamily="@font/abril_fatface"
         android:shadowColor="@android:color/black"
         android:shadowDx="-1"
@@ -43,8 +43,8 @@
         android:id="@+id/article_pub_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="224dp"
         android:fontFamily="@font/abril_fatface"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,12 +56,33 @@
         android:layout_width="359dp"
         android:layout_height="395dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="272dp"
-        android:fontFamily="@font/abril_fatface"
+        android:layout_marginTop="240dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="11 Nov, 2020" />
+        tools:text="Thông báo
+
+V/v: Đăng ký chuyển ngành, chuyển cơ sở học kỳ Fall 2023
+
+
+Tất cả sinh viên có nguyện vọng CHUYỂN ĐỔI chuyên ngành, chuyên ngành hẹp hoặc chuyển cơ sở học kỳ Summer 2023 vui lòng lên AP để đăng ký.
+
+Thông báo này KHÔNG dành cho Sinh viên KHÓA 18.2 (ngành TKĐH, TKWE) muốn chuyển chuyên ngành hẹp LẦN ĐẦU.
+
+Thời gian mở đăng ký: Từ 9h00 ngày 01/8/2023 đến hết 20/8/2023
+
+Lưu ý: Sau thời gian này nếu Sinh viên không đăng ký trên AP, Phòng Đào tạo sẽ không hỗ trợ xử lý với bất kỳ lý do nào.
+
+
+Trân trọng!" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

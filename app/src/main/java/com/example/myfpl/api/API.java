@@ -42,9 +42,11 @@ public interface API {
     @GET("course/find-id.php?id=1")
     Call<BaseResponse<ArrayList<CourseModel>>> getCourse();
 
+    @FormUrlEncoded
     @POST("course/register.php")
     Call<BaseResponse<String>> registerCourse(@Field("id_user") int id, @Field("id_course") int id_course);
 
+    @FormUrlEncoded
     @POST("course/cancel-course.php")
     Call<BaseResponse<String>> cancelCourse(@Field("id_user") int id, @Field("id_course") int id_course);
 

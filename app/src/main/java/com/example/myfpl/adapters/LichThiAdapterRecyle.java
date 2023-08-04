@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfpl.R;
 import com.example.myfpl.models.CourseModel;
-import com.example.myfpl.models.LichHocModel;
 
 import java.util.ArrayList;
 
-public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRecyle.ViewHoler> {
+public class LichThiAdapterRecyle extends RecyclerView.Adapter<LichThiAdapterRecyle.ViewHoler> {
 
     private Context context;
     private ArrayList<CourseModel> data;
 
-    public LichHocAdapterRecyle(Context context, ArrayList<CourseModel> data) {
+    public LichThiAdapterRecyle(Context context, ArrayList<CourseModel> data) {
         this.context = context;
         this.data = data;
     }
@@ -34,7 +32,7 @@ public class LichHocAdapterRecyle extends RecyclerView.Adapter<LichHocAdapterRec
     @Override
     public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.lich_hoc_items, parent, false);
+        View view = inflater.inflate(R.layout.lich_thi_items, parent, false);
         return new ViewHoler(view);
     }
 

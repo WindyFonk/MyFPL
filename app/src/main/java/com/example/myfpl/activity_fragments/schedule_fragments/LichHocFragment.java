@@ -2,6 +2,7 @@ package com.example.myfpl.activity_fragments.schedule_fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myfpl.activities.MainActivity;
 import com.example.myfpl.R;
 import com.example.myfpl.adapters.LichHocAdapterRecyle;
+import com.example.myfpl.api.ServiceHelper;
+import com.example.myfpl.models.BaseResponse;
+import com.example.myfpl.models.CourseModel;
 import com.example.myfpl.models.LichHocModel;
+import com.example.myfpl.models.NotificationModel;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LichHocFragment extends Fragment {
     View view;
@@ -27,7 +36,7 @@ public class LichHocFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_lich_hoc, container, false);
         listView = view.findViewById(R.id.lvLichThi);
-        SetData();
+        SetDataLich();
         return view;
     }
 
@@ -40,16 +49,25 @@ public class LichHocFragment extends Fragment {
         }
     }
 
-    private void SetData(){
-        ArrayList<LichHocModel> list = new ArrayList<>();
-        LichHocModel _class = new LichHocModel("Android Networking","22/06/2003","5","T304");
-        for (int i = 0; i < 5; i++) {
-            list.add(_class);
-        }
 
-        LichHocAdapterRecyle adapterLich = new LichHocAdapterRecyle(requireContext(), list);
-        LinearLayoutManager linearLayoutManagerLich = new LinearLayoutManager(requireContext());
-        listView.setLayoutManager(linearLayoutManagerLich);
-        listView.setAdapter(adapterLich);
+    private void SetDataLich() {
+
+        ServiceHelper.getInstance().getCourse().enqueue(new Callback<BaseResponse<ArrayList<CourseModel>>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<ArrayList<CourseModel>>> call, Response<BaseResponse<ArrayList<CourseModel>>> response) {
+
+                LichHocAdapterRecyle adapterLich = new LichHocAdapterRecyle(requireContext(), response.body().data);
+                LinearLayoutManager linearLayoutManagerLich = new LinearLayoutManager(requireContext());
+                listView.setLayoutManager(linearLayoutManagerLich);
+                listView.setAdapter(adapterLich);
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<ArrayList<CourseModel>>> call, Throwable t) {
+
+            }
+        });
+
     }
+
 }

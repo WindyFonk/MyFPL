@@ -50,7 +50,7 @@ public class ServiceHelper {
         return new Retrofit.Builder()
                 .baseUrl(base_url)
                 .client(httpClient.build())
-                .addConverterFactory(GsonConverterFactory.create(gson));
+                .addConverterFactory(GsonConverterFactory.create());
     }
 
     public Call<BaseResponse<ArrayList<UserLoginObject>>> login(UserLoginReq userLoginReq) {
@@ -65,12 +65,12 @@ public class ServiceHelper {
         return service.getCourse();
     }
 
-    public Call<BaseResponse<String>> registerCourse() {
-        return service.registerCourse(1,4);
+    public Call<BaseResponse<String>> registerCourse(int course) {
+        return service.registerCourse(1,course);
     }
 
-    public Call<BaseResponse<String>> cancelCourse() {
-        return service.cancelCourse(1,4);
+    public Call<BaseResponse<String>> cancelCourse(int course) {
+        return service.cancelCourse(1,course);
     }
 
     public Call<BaseResponse<ArrayList<LichThiModel>>> getLichThi() {

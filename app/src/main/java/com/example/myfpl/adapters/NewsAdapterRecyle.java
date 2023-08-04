@@ -2,6 +2,7 @@ package com.example.myfpl.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myfpl.R;
+import com.example.myfpl.activities.NewsDetailActivity;
 import com.example.myfpl.models.NewsModel;
 import com.example.myfpl.models.NotificationModel;
 
@@ -41,10 +43,15 @@ public class NewsAdapterRecyle extends RecyclerView.Adapter<NewsAdapterRecyle.Vi
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
         holder.tvNewsTitle.setText(data.get(position).DESCRIPTION);
         holder.tvNewsTime.setText(data.get(position).TIME);
+        Glide.with(context).load(data.get(position).IMAGE).into(holder.imgNews);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(">>>>CLick: ",String.valueOf(position));
+                Intent intent = new Intent(context, NewsDetailActivity.class);
+                intent.putExtra("title",data.get(position).DESCRIPTION);
+                intent.putExtra("time",data.get(position).TIME);
+                intent.putExtra("image",data.get(position).IMAGE);
+                context.startActivity(intent);
             }
         });
 

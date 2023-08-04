@@ -38,15 +38,13 @@ public class APIResponse {
 
     public ArrayList<CourseModel> getCourse() {
         final ArrayList<CourseModel> list = new ArrayList<>();
-
-
         return list;
     }
 
-    public String registerCourse() {
+    public String registerCourse(int course) {
         final String[] result = new String[1];
 
-        ServiceHelper.getInstance().registerCourse().enqueue(new Callback<BaseResponse<String>>() {
+        ServiceHelper.getInstance().registerCourse(course).enqueue(new Callback<BaseResponse<String>>() {
             @Override
             public void onResponse(@NonNull Call<BaseResponse<String>> call, @NonNull Response<BaseResponse<String>> response) {
                 if (response.isSuccessful()) {
@@ -63,10 +61,10 @@ public class APIResponse {
         return result[0];
     }
 
-    public String cancelCourse() {
+    public String cancelCourse(int course) {
         final String[] result = new String[1];
 
-        ServiceHelper.getInstance().cancelCourse().enqueue(new Callback<BaseResponse<String>>() {
+        ServiceHelper.getInstance().cancelCourse(course).enqueue(new Callback<BaseResponse<String>>() {
             @Override
             public void onResponse(@NonNull Call<BaseResponse<String>> call, @NonNull Response<BaseResponse<String>> response) {
                 if (response.isSuccessful()) {

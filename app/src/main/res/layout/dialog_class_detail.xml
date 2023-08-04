@@ -9,35 +9,55 @@
     android:background="@drawable/input_text_border">
 
     <TextView
-        android:id="@+id/tvNoiDung"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="104dp"
-        android:text="Nội dung: Lab 4, Quiz 4 - Sử dụng PHP tạo API "
+        android:text="Nội dung:"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvThoiGian"
+        android:id="@+id/tvNoiDung"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="104dp"
+        android:minLines="2"
+        android:text="Lab 4, Quiz 4 - Sử dụng PHP tạo API "
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMaMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="208dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="12dp"
-        android:text="17:30 - 19:30"
+        android:text="MOB403"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:textSize="18dp"
-        android:id="@+id/tvMaMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:text="Mã môn: MOB403"
+        android:text="Mã môn: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Giảng đường:"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,9 +65,9 @@
         android:id="@+id/tvGiangDuong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="56dp"
-        android:text="Giảng đường: Phan Mem Quang Trung"
+        android:text="Phan Mem Quang Trung"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

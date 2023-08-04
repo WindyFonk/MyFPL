@@ -4,6 +4,7 @@ public class CourseModel {
     public String NAME;
     public String USERNAME;
     public String TIME;
+    public String ca_hoc;
     public String phong_hoc;
     public String giang_duong;
     public String noi_dung;
