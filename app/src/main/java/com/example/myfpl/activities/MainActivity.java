@@ -81,13 +81,13 @@ public class MainActivity extends FragmentActivity {
                 logo.setImageResource(R.drawable.fptlogowhite);
                 break;
             case 2:
-                logo.setImageResource(R.drawable.fptlogowhite);
+                logo.setImageResource(R.drawable.fptnews);
                 break;
             case 3:
-                logo.setImageResource(R.drawable.fptlogowhite);
+                logo.setImageResource(R.drawable.fptshedule);
                 break;
             case 4:
-                logo.setImageResource(R.drawable.fptlogowhite);
+                logo.setImageResource(R.drawable.fptothers);
                 break;
         }
     }

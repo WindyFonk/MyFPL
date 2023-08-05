@@ -25,7 +25,7 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="104dp"
         android:minLines="2"
-        android:text="Lab 4, Quiz 4 - Sử dụng PHP tạo API "
+        android:text="-Nôi dung thi "
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

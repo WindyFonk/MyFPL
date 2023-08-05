@@ -1,67 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/article_image"
-        android:layout_width="413dp"
-        android:layout_height="210dp"
-        android:foreground="@drawable/newsimg_foreground"
-        android:scaleType="centerCrop"
-        android:src="@drawable/news"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/article_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/abril_fatface"
-        android:shadowColor="@android:color/black"
-        android:shadowDx="-1"
-        android:shadowDy="2"
-        android:shadowRadius="0.01"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/article_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Once Upon A Time In Hollywood.." />
-
-    <TextView
-        android:id="@+id/article_pub_date"
+    <include layout="@layout/action_bar"
+        android:id="@+id/action_bar"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="224dp"
-        android:fontFamily="@font/abril_fatface"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="11 Nov, 2020" />
+        android:layout_marginTop="65dp">
+        <ImageView
+            android:id="@+id/article_image"
+            android:layout_width="413dp"
+            android:layout_height="210dp"
+            android:foreground="@drawable/newsimg_foreground"
+            android:scaleType="centerCrop"
+            android:src="@drawable/news"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/article_detail"
-        android:layout_width="359dp"
-        android:layout_height="395dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="240dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Thông báo
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/abril_fatface"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="-1"
+            android:shadowDy="2"
+            android:shadowRadius="0.01"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/article_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Once Upon A Time In Hollywood.." />
+
+        <TextView
+            android:id="@+id/article_pub_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="224dp"
+            android:fontFamily="@font/abril_fatface"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="11 Nov, 2020" />
+
+        <TextView
+            android:id="@+id/article_detail"
+            android:layout_width="359dp"
+            android:layout_height="395dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="240dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Thông báo
 
 V/v: Đăng ký chuyển ngành, chuyển cơ sở học kỳ Fall 2023
 
@@ -77,12 +84,14 @@ Lưu ý: Sau thời gian này nếu Sinh viên không đăng ký trên AP, Phòn
 
 Trân trọng!" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

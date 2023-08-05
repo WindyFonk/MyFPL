@@ -46,7 +46,7 @@ public class MonHocAdapterRecyle extends RecyclerView.Adapter<MonHocAdapterRecyl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        if (Integer.valueOf(data.get(position).IS_REGISTER) ==0){
+        if (Integer.valueOf(data.get(position).IS_REGISTER) ==1){
             holder.tvDangKi.setText("Đăng kí");
         }
         else{
@@ -56,12 +56,11 @@ public class MonHocAdapterRecyle extends RecyclerView.Adapter<MonHocAdapterRecyl
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Integer.valueOf(data.get(position).IS_REGISTER) ==0){
+                if (Integer.valueOf(data.get(position).IS_REGISTER) ==1){
                     ServiceHelper.getInstance().registerCourse(Integer.valueOf(data.get(position).ID)).enqueue(new Callback<BaseResponse<String>>() {
                         @Override
                         public void onResponse(Call<BaseResponse<String>> call, Response<BaseResponse<String>> response) {
                             Log.d(">>>Click",""+call);
-
                         }
 
                         @Override

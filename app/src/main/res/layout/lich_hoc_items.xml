@@ -23,7 +23,7 @@
             android:id="@+id/tvPhong"
             android:layout_width="120dp"
             android:layout_height="55dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/g_light"
             android:text="Phòng: T305"
             android:textColor="@color/white"
