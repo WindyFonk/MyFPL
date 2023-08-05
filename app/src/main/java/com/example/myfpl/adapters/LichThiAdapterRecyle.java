@@ -14,16 +14,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfpl.R;
-import com.example.myfpl.models.CourseModel;
+import com.example.myfpl.models.LichThiModel;
 
 import java.util.ArrayList;
 
 public class LichThiAdapterRecyle extends RecyclerView.Adapter<LichThiAdapterRecyle.ViewHoler> {
 
     private Context context;
-    private ArrayList<CourseModel> data;
+    private ArrayList<LichThiModel> data;
 
-    public LichThiAdapterRecyle(Context context, ArrayList<CourseModel> data) {
+    public LichThiAdapterRecyle(Context context, ArrayList<LichThiModel> data) {
         this.context = context;
         this.data = data;
     }
@@ -38,7 +38,6 @@ public class LichThiAdapterRecyle extends RecyclerView.Adapter<LichThiAdapterRec
 
     @Override
     public void onBindViewHolder(@NonNull ViewHoler holder, int position) {
-        holder.tvCa.setText("Ca: "+data.get(position).ca_hoc);
         holder.tvNgay.setText(data.get(position).TIME);
         holder.tvPhong.setText("Phòng: "+data.get(position).phong_hoc);
         holder.tvMon.setText(data.get(position).NAME);
@@ -51,7 +50,6 @@ public class LichThiAdapterRecyle extends RecyclerView.Adapter<LichThiAdapterRec
                 TextView tvGiangDuong = _view.findViewById(R.id.tvGiangDuong);
                 TextView tvNoiDung = _view.findViewById(R.id.tvNoiDung);
                 tvGiangDuong.setText(data.get(position).giang_duong);
-                tvNoiDung.setText(data.get(position).noi_dung);
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext())
                         .setView(_view);
                 alertDialog = builder.create();
