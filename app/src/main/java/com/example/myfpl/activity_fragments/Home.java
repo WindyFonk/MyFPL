@@ -57,6 +57,7 @@ public class Home extends Fragment {
     ImageView btnLogout;
     TextView btnAllNews, btnAllSchedules;
     APIResponse apiResponse;
+    NewsAdapterRecyle adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -150,7 +151,7 @@ public class Home extends Fragment {
 
 
     private void SetData(ArrayList<NotificationModel> data){
-        NewsAdapterRecyle adapter = new NewsAdapterRecyle(requireContext(),data);
+        adapter = new NewsAdapterRecyle(requireContext(),data);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         newsListview.setLayoutManager(linearLayoutManager);
